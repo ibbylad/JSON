@@ -36,7 +36,7 @@
         // Once only
 
         var sizes = [20, 60, 80, 100, 120]; // An array of the sizes of the canvas elements. 
-        var shades = ["#145A32", "#800000", "##117A65", "#283747", "#1F618D"]; // An array of the colours of the canvas elements. 
+        var shades = ["#145A32", "#800000", "#117A65", "#283747", "#1F618D"]; // An array of the colours of the canvas elements. 
         var positionX = [0, 50, 100, 200]; // An array of the x position of the canvas elements.
         var positionY = [0, 50, 100, 200]; // An array of the y position of the canvas elements.
         var halfCircle = [2, 1.5, 1, 0.5, 0.25]; // An array of the completeness of the canvas elements.
@@ -68,6 +68,17 @@
             b_context.font = "40px Verdana"; // Add text.
             b_context.fillText(e, d, z); // Text fill property.
             b_context.closePath();
+
+
+            //Debugging values in arrays
+            console.log(s); // Displays the value of s as it is randomly selected from the array.
+            console.log(c); // Displays the value of c as it is randomly selected from the array.
+            console.log(d); // Displays the value of d as it is randomly selected from the array.
+            console.log(z); // Displays the value of s as it is randomly selected from the array.
+            console.log(h); // Displays the value of s as it is randomly selected from the array.
+            console.log(e); // Displays the value of s as it is randomly selected from the array.
+            console.log(b_canvas.width);
+            console.log(b_canvas.height);
         }
 
         setInterval(drawIt, 500); // The delay for the draw function. The higher it is, the slower the draw function will take place.
