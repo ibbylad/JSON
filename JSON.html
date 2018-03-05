@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--BY IBRAHIM ADAM-->
+<!--Code from = https://codepen.io/MarkPorter66/pen/rJqxyb-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Example</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <!--Font imported from Google fonts.-->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+        /*Font imported from Google fonts.*/
+
+        body {
+            font-family: 'Roboto Slab', serif;
+            /*Font for the body of the page*/
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>JSON Example</h1>
+    <p>This is my JSON example.</p>
+
+    <!--Canvas set up-->
+    <canvas id="jsonCanvas" width="500" height="500" style="border:3px solid black;"></canvas>
+
+    <script>
+        // JSON canvas example
+        var b_canvas = document.getElementById("jsonCanvas");
+        var b_context = b_canvas.getContext("2d");
+        // Once only
+
+        var sizes = [20, 60, 80, 100, 120]; // An array of the sizes of the canvas elements. 
+        var shades = ["#145A32", "#800000", "##117A65", "#283747", "#1F618D"]; // An array of the colours of the canvas elements. 
+        var positionX = [0, 50, 100, 200]; // An array of the x position of the canvas elements.
+        var positionY = [0, 50, 100, 200]; // An array of the y position of the canvas elements.
+        var halfCircle = [2, 1.5, 1, 0.5, 0.25]; // An array of the completeness of the canvas elements.
+        var letters = ["I", "B", "R", "A", "H", "I", "M", "Ibrahim", "Adam"]; // An array of letters and words. 
+
+        // Storing the length of the size of arrays in a variable. 
+        var a = sizes.length; // Size array.
+        var b = shades.length; // Shades array.
+        var x = positionX.length; // X position array.
+        var y = positionY.length; // Y position array.
+        var i = halfCircle.length; // Half Circle array.
+        var l = letters.length; // Letters and words array.
+
+        // Function to draw on the canvas.
+        function drawIt() {
+            // Randomisers
+            var s = sizes[Math.floor(Math.random() * a)]; // Size randomiser.
+            var c = shades[Math.floor(Math.random() * b)]; // Shades randomiser.
+            var d = positionX[Math.floor(Math.random() * x)]; // X position randomiser.
+            var z = positionY[Math.floor(Math.random() * y)]; // Y position randomiser.
+            var h = halfCircle[Math.floor(Math.random() * i)]; // Completeness of circle randomiser.
+            var e = letters[Math.floor(Math.random() * l)]; // Letters and words randomiser.
+
+            b_context.clearRect(0, 0, b_canvas.width, b_canvas.height); // Clear the canvas.
+            b_context.beginPath();
+            b_context.fillStyle = c; // Circle fill style.
+            b_context.arc(250, 250, s, 0, h * Math.PI); // Create the circle.
+            b_context.fill(); // Circle fill
+            b_context.font = "40px Verdana"; // Add text.
+            b_context.fillText(e, d, z); // Text fill property.
+            b_context.closePath();
+        }
+
+        setInterval(drawIt, 500); // The delay for the draw function. The higher it is, the slower the draw function will take place.
+
+    </script>
+</body>
+
+</html>
