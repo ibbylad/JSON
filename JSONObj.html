@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--BY IBRAHIM ADAM-->
+<!--Code from = https://codepen.io/MarkPorter66/pen/rJqxyb-->
+<!--Code for accessing arrays = https://www.w3schools.com/js/js_json_arrays.asp-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Example</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <!--Font imported from Google fonts.-->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+
+        /*Font imported from Google fonts.*/
+
+        body {
+            font-family: 'Roboto Slab', serif;
+            /*Font for the body of the page*/
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!--Static example H1, p and canvas set up-->
+    <h1>JSON Example</h1>
+    <p>This is my JSON example.</p>
+
+    <!--Canvas set up-->
+    <canvas id="jsonCanvas" width="500" height="500" style="border:3px solid black;"></canvas>
+
+    <script>
+        // JSON canvas example
+        var b_canvas = document.getElementById("jsonCanvas");
+        var b_context = b_canvas.getContext("2d"); // Once only
+
+        var positionX = [0, 50, 100, 200]; // An array of the x position of the canvas elements.
+        var positionY = [0, 50, 100, 200]; // An array of the y position of the canvas elements.
+        var halfCircle = [2, 1.5, 1, 0.5, 0.25]; // An array of the completeness of the canvas elements.
+        var letters = ["I", "B", "R", "A", "H", "I", "M", "Ibrahim", "Adam"]; // An array of letters and words. 
+
+
+        // Function to draw on the canvas.
+        function draw() {
+
+            // My JSON Object
+            var jsonObject = {
+                "size": [20, 60, 80, 100, 120], // Size properties.
+                "shade": ["#145A32", "#800000", "#117A65", "#283747", "#1F618D"] // Shade properties.
+            };
+
+            x = jsonObject.size[0, 1, 2, 3, 4];
+            y = jsonObject.shade[0, 1, 2, 3, 4];
+
+            // Storing the length of the size of arrays in a variable. 
+            var x = positionX.length; // X position array.
+            var y = positionY.length; // Y position array.
+            var i = halfCircle.length; // Half Circle array.
+            var l = letters.length; // Letters and words array.
+            var p = jsonObject.size; // Size array.
+            var q = jsonObject.shade; // Shade array.
+
+            // Randomisers
+            var s = jsonObject.size[Math.floor(Math.random() * x)]; // Size randomiser.
+            var c = jsonObject.shade[Math.floor(Math.random() * y)]; // Shades randomiser.
+            var d = positionX[Math.floor(Math.random() * x)]; // X position randomiser.
+            var z = positionY[Math.floor(Math.random() * y)]; // Y position randomiser.
+            var h = halfCircle[Math.floor(Math.random() * i)]; // Completeness of circle randomiser.
+            var e = letters[Math.floor(Math.random() * l)]; // Letters and words randomiser.
+
+            b_context.clearRect(0, 0, b_canvas.width, b_canvas.height); // Clear the canvas.
+            b_context.beginPath();
+            b_context.fillStyle = c; // Circle fill style.
+            b_context.arc(250, 250, s, 0, h * Math.PI); // Create the circle.
+            b_context.fill(); // Circle fill
+            b_context.font = "40px Verdana"; // Add text.
+            b_context.fillText(e, d, z); // Text fill property.
+            b_context.closePath();
+            console.log(jsonObject); //Debugging to check if there's an object.
+        }
+        setInterval(draw, 500); // The delay for the draw function. The higher it is, the slower the draw function will take place.
+
+    </script>
+</body>
+
+</html>
